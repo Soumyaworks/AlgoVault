@@ -1,0 +1,15 @@
+it.first=1 it.second=1
+Case #1: 1 1
+it.first=1 it.second=1
+Case #2: 1 1
+it.first=3 it.second=9
+Case #3: 3 9
+it.first=2 it.second=4
+Case #4: 2 4
+it.first=1 it.second=1
+Case #5: 1 1
+Case #6: Impossible
+it.first=2 it.second=3
+Case #7: 2 3
+it.first=1 it.second=2
+Case #8: 1 2
