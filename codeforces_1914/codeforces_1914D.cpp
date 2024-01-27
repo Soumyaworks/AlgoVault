@@ -49,6 +49,51 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int n,i,j,k;
+        cin>>n;
+        vector<pair<int,int>>s(n),m(n),b(n);
+        for(i=0;i<n;i++){
+            cin>>s[i].fi;
+            s[i].se=i;
+        }
+        for(i=0;i<n;i++){
+            cin>>m[i].fi;
+            m[i].se=i;
+        }
+        for(i=0;i<n;i++){
+            cin>>b[i].fi;
+            b[i].se=i;
+        }
+        i=j=k=0;
+        sort(s.rbegin(),s.rend()); //i
+        sort(m.rbegin(),m.rend()); //j
+        sort(b.rbegin(),b.rend()); //k
+        int ans=0;
+        // while(true){
+        //     if(s[i].se!=m[j].se && s[i].se!=b[k].se && m[j].se!=b[k].se){
+        //         ans+=(s[i].fi + m[j].fi + b[k].fi);
+        //         break;
+        //     }
+        //     else{
+        //         if(s[i].se==m[j].se && s[i].se==b[k].se){
+        //             ans+=max({s[i].fi,m[j].fi,b[k].fi});
+
+
+        //         }
+        //     }
+        // }
+        for(i=0;i<3;i++){
+            for(j=0;j<3;j++){
+                for(k=0;k<3;k++){
+                    if(s[i].se!=m[j].se && s[i].se!=b[k].se && m[j].se!=b[k].se)
+                        ans=max(ans,s[i].fi + m[j].fi + b[k].fi);
+                }
+            }
+        }
+        cout<<ans<<"\n";
+    }
     return 0;
 }

@@ -5,7 +5,6 @@
 #pragma GCC optimize("Ofast")
 #define ll long long int
 #define pb push_back
-#define eb emplace_back
 #define mp make_pair
 #define ld long double
 #define fi first
@@ -49,6 +48,37 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    ll t,i,j,k,n;
+    cin>>t;
+    while(t--){
+        cin>>n;
+        string s;
+        cin>>s;
+        k=0;
+        vector<ll>v;
+        for(i=n-1;i>=0;i--){
+            if(s[i]=='0'){
+                v.pb(i);
+            }
+            else{
+                k=1;
+            }
+        }
+        ll ans=0;
+        for(i=1;i<=n;i++){
+            if(k==0){
+                cout<<k<<" ";
+                continue;
+            }
+            if(i>v.size()){
+                cout<<-1<<" ";
+            }
+            else{
+                ans+=(n-1-(i-1)-v[i-1]);
+                cout<<ans<<" ";
+            }
+        }
+        cout<<"\n";
+    }
     return 0;
 }

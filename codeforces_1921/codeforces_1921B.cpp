@@ -49,6 +49,25 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        string t;
+        cin>>t;
+        int i,j,k,c=0,p=0;
+        for(i=0;i<n;i++){
+            if(s[i]=='1' && t[i]=='1')
+                continue;
+            else if(s[i]=='1')
+                c++;
+            else if(t[i]=='1')
+                p++;
+        }
+        cout<<p+(max(0,c-p))<<"\n";
+    }
     return 0;
 }

@@ -49,6 +49,23 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int n,i,j,k;
+        string s;
+        cin>>n;
+        cin>>s;
+        unordered_map<char,int>m;
+        for(i=0;i<n;i++){
+            m[s[i]]++;
+        }
+        int ans=0;
+        for(auto it:m){
+            if(it.se >=((int)it.fi-64))
+                ans++;
+        }
+        cout<<ans<<"\n";
+    }
     return 0;
 }

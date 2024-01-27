@@ -49,6 +49,27 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll i,j,k,n;
+        cin>>n;
+        vector<ll>a(n);
+        for(i=0;i<n;i++){
+            cin>>a[i];
+        }
+        ll even=0,odd=0,sum=0;
+        for(i=0;i<n;i++){
+            sum+=a[i];
+            even+=(a[i]%2==0);
+            odd+=(a[i]%2==1);
+            if(i==0)
+                cout<<sum<<" ";
+            else{
+                cout<<sum-(odd/3)-(odd%3==1)<<" ";
+            }
+        }
+        cout<<"\n";
+    }
     return 0;
 }

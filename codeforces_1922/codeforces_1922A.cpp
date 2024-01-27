@@ -49,6 +49,21 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int n,i,j=0,k;
+        cin>>n;
+        string a,b,c;
+        cin>>a>>b>>c;
+        for(i=0;i<n;i++){
+            if(a[i]==c[i] || b[i]==c[i])
+                j++;
+        }
+        if(j==n)
+            cout<<"NO"<<"\n";
+        else    
+            cout<<"YES"<<"\n";
+    }
     return 0;
 }

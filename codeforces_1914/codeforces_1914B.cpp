@@ -49,6 +49,23 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int i,j,n,k;
+        cin>>n>>k;
+        vector<int>ans(n);
+        j=0;
+        for(i=n;i>(k+1);i--){
+            ans[j++]=i;
+        }
+        for(i=1;i<=k+1;i++){
+            ans[j++]=i;
+        }
+        for(i=0;i<n;i++){
+            cout<<ans[i]<<" ";
+        }
+        cout<<"\n";
+    }
     return 0;
 }

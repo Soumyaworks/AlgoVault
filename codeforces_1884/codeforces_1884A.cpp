@@ -5,7 +5,6 @@
 #pragma GCC optimize("Ofast")
 #define ll long long int
 #define pb push_back
-#define eb emplace_back
 #define mp make_pair
 #define ld long double
 #define fi first
@@ -38,6 +37,16 @@ struct TreeNode {
     //TreeNode *root=new TreeNode();
 };
 
+int findsum(int x){
+    int r,s=0;
+    while(x>0){
+        r=x%10;
+        s+=r;
+        x=x/10;
+    }
+    return s;
+}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -49,6 +58,21 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    int t,n,x,k,i,j;
+    cin>>t;
+    while(t--){
+        cin>>x>>k;
+        int ans;
+        if(findsum(x)%k==0){
+            ans=x;
+        }
+        else{
+            while(findsum(x)%k!=0){
+                x++;
+            }
+            ans=x;
+        }
+        cout<<ans<<"\n";
+    }
     return 0;
 }

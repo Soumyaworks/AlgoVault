@@ -49,6 +49,29 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll i,j,k,n;
+        cin>>n;
+        vector<ll>a(n);
+        ll neg=0,p=1;
+        for(i=0;i<n;i++){
+            cin>>a[i];
+            if(a[i]<0){
+                neg++;
+            }
+            else if(a[i]==0)
+                p=0;
+            // p*=a[i];
+        }
+        if(neg%2!=0 || p==0){
+            cout<<0<<"\n";
+        }
+        else{
+            cout<<1<<"\n";
+            cout<<1<<" "<<0<<"\n";
+        }
+    }
     return 0;
 }

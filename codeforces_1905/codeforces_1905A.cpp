@@ -49,6 +49,12 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int n,m;
+        cin>>m>>n;
+        cout<<max(n,m)<<"\n";
+    }
     return 0;
 }

@@ -49,6 +49,38 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n,i,k,j;
+        cin>>n;
+        ll a=LLONG_MIN,b=LLONG_MAX,c;
+        vector<int>three;
+        for(i=0;i<n;i++){
+            ll x,z;
+            cin>>x>>z;
+            if(x==1){
+                a=max(a,z);
+            }
+            else if(x==2){
+                b=min(b,z);
+            }
+            else{
+                three.pb(z);
+            }
+        }
+        // cout<<"A="<<a<<" b="<<b<<"\n";
+        c=0;
+        if(b<a){
+            cout<<0<<"\n";
+            continue;
+        }
+        for(auto it:three){
+            if(it>=a && it<=b){
+                c++;
+            }
+        }
+        cout<<((b-a+1)-c)<<"\n";
+    }
     return 0;
 }

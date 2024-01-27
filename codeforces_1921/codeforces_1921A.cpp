@@ -49,6 +49,22 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll i,j,x1,x2,x3,x4,y1,y2,y3,y4;
+        cin>>x1>>y1;
+        cin>>x2>>y2;
+        cin>>x3>>y3;
+        cin>>x4>>y4;
+        i=max({x1,x2,x3,x4});
+        j=min({x1,x2,x3,x4});
+        ll k1,k2;
+        k1=max({y1,y2,y3,y4});
+        k2=min({y1,y2,y3,y4});
+        ll s1=i-j;
+        ll s2=k1-k2;
+        cout<<s1*s2<<"\n";
+    }
     return 0;
 }

@@ -49,6 +49,41 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n,x,i,k,j;
+        cin>>n>>k>>x;
+        vector<ll>a(n),b(n);
+        ll ans;
+        for(i=0;i<n;i++){
+            cin>>a[i];
+            // a[i]=b[i];
+        }
+        sort(a.rbegin(),a.rend());
+        for(i=0;i<n;i++){
+            if(i==0)
+                continue;
+            else{
+                a[i]+=a[i-1];
+            }
+        }
+        // cout<<"A here :"<<"\n";
+        // for(auto it:a){
+        //     cout<<it<<" ";
+        // }
+        // cout<<"\n";
+        ans=a[x-1]*-1;
+        ans=a[n-1]+2*ans;
+        // cout<<"ans here ="<<ans<<"\n";
+        ll csum=ans;
+        x--;
+        for(i=0;i<k;i++){
+            csum=-1*(a[min(i+1+x,n-1)]-a[i])+(a[n-1]-a[min(i+1+x,n-1)]);
+            ans=max(ans,csum);
+        }
+        cout<<ans<<"\n";
+
+    }
     return 0;
 }

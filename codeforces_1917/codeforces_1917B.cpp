@@ -49,6 +49,21 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll i,j,k=0,n;
+        cin>>n;
+        string s;
+        cin>>s;
+        vector<int>a(26,0);
+        for(i=0;i<n;i++){
+            if(a[s[i]-'a']==0){
+                k+=(n-i);
+                a[s[i]-'a']=1;
+            }
+        }
+        cout<<k<<"\n";
+    }
     return 0;
 }

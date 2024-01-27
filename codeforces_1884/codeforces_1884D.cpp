@@ -5,7 +5,6 @@
 #pragma GCC optimize("Ofast")
 #define ll long long int
 #define pb push_back
-#define eb emplace_back
 #define mp make_pair
 #define ld long double
 #define fi first

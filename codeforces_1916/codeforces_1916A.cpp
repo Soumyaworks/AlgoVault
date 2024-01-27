@@ -49,6 +49,27 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    int t;
+    cin>>t;
+    while(t--){
+        ll n,k;
+        cin>>n>>k;
+        vector<int>b(n);
+        ll i,j,p=1;
+        for(i=0;i<n;i++){
+            cin>>b[i];
+            p*=b[i];
+        }
+        if(2023%p)
+            cout<<"NO\n";
+        else{
+            cout<<"YES\n";
+            j=2023/p;
+            cout<<j<<" ";
+            for(i=2;i<=k;i++)
+                cout<<1<<" ";
+            cout<<"\n";
+        }
+    }
     return 0;
 }

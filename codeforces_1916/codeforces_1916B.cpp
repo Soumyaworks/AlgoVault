@@ -49,6 +49,20 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    int t;
+    cin>>t;
+    while(t--){
+        ll a,b;
+        cin>>a>>b;
+        ll i,j,k,p;
+        p=(a*b)/(__gcd(a,b));
+        if(p!=b)
+            cout<<p<<"\n";
+        else{
+            j=b/(__gcd(a,b));
+            p=p*j;
+            cout<<p<<"\n";
+        }
+    }
     return 0;
 }

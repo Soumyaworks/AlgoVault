@@ -38,6 +38,21 @@ struct TreeNode {
     //TreeNode *root=new TreeNode();
 };
 
+string lex_largest_subseq(string s,vector<int>&a){ // in our code, index required, hence vector<int>a used, else not needed
+    // vector<int>a;
+    string str="";
+    int i,n=s.size();
+    for(i=n-1;i>=0;i--){
+        if(a.empty() || s[i]>=s[a.back()]){
+            str+=s[i];
+            a.pb(i);
+        }
+    }
+    reverse(str.begin(),str.end());
+    reverse(a.begin(),a.end());
+    return str;
+}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -49,6 +64,26 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int n,i,j,k;
+        cin>>n;
+        string s;
+        cin>>s;
+        vector<int>a;
+        string str=lex_largest_subseq(s,a);
+        // cout<<str<<"\n";
+        j=0;
+        while(j<a.size() && s[a[0]]==s[a[j]]){
+            j++;
+        }
+        int ans=a.size()-j;
+        int sz=a.size();
+        for(i=0;i<sz/2;i++){
+            swap(s[a[i]],s[a[sz-i-1]]);
+        }
+        cout<<((is_sorted(s.begin(),s.end()))?ans:-1)<<"\n";
+    }
     return 0;
 }

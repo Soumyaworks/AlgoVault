@@ -49,6 +49,33 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n,i,j=0,k,a,f,b;
+        cin>>n>>f>>a>>b;
+        vector<ll>v(n);
+        for(i=0;i<n;i++){
+            cin>>v[i];
+        }
+        f-=min(v[0]*a,b);
+        if(f<=0){
+            cout<<"NO"<<"\n";
+            continue;
+        }
+        for(i=1;i<n;i++){
+            k=v[i]-v[i-1];
+            f-=min(k*a,b);
+            if(f<=0){
+                j=1;
+                break;
+            }
+        }
+        if(j==1){
+            cout<<"NO"<<"\n";
+        }
+        else
+            cout<<"YES"<<"\n";
+    }
     return 0;
 }
