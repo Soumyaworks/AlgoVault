@@ -49,6 +49,30 @@ int main()
     // #endif 
     
     //cout<<"Hello World"<<"\n";
-    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n,x,i,j,k,a;
+        cin>>k>>x>>a;
+        if(a<=x){
+            cout<<"NO"<<"\n";
+        }
+        else{
+            ll bet, used =0;
+            j=0;
+            for(i=0;i<=x;i++){
+                bet=(used)/(k-1) + 1;
+                used+=bet;
+                if(used>a){
+                    j=1;
+                    break;
+                }
+            }
+            if(j==1)
+                cout<<"NO"<<"\n";
+            else
+                cout<<"YES"<<"\n";
+        }
+    }
     return 0;
 }
