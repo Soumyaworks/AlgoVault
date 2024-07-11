@@ -56,57 +56,104 @@ int main()
         cin>>n>>k;
         string s;
         cin>>s;
-        s+='L';
-        int ans=0;
-        vector<int>pos,pre(n);
+        // s+='L';
+        // n++;
+        // int ans=0;
+        // vector<int>pos,pre(n);
+        // for(i=0;i<n;i++){
+        //     if(s[i]=='L'){
+        //         pos.pb(i);
+        //         if(i==0)
+        //             pre[i]=0;
+        //         else
+        //             pre[i]=pre[i-1];
+        //     }                
+        //     else{
+        //         if(i==0 || (i>0 && s[i-1]=='L'))
+        //             ans+=1;
+        //         else 
+        //             ans+=2;
+        //         pre[i]=ans;
+        //     }
+        // }
+        // // cout<<"ans till this point, ans and pre[n-1] should be same: "<<ans<<"," << pre[n-1] <<"\n";
+        // if(pos.empty() || k==0)
+        //     cout<<ans<<"\n";
+        // else{
+        //     int sum=0;
+        //     for(i=0;i<pos.size()-1;i++){
+        //         sum=0;
+        //         j=i+k;
+        //         j=min(j, (int)pos.size()-1);
+        //         if(pos[i]==0 || (pos[i]>0 && s[pos[i]-1]=='L')){
+        //             // if(j==(int)pos.size()-1)
+        //             //     sum+= (pos[j]-pos[i])*2+1;
+        //             // else
+        //             sum+= (pos[j]-pos[i]-1)*2+1;
+        //             if(pos[i]>0)
+        //                 sum+=pre[pos[i]-1];
+        //             if(pos[j]>0)
+        //                 sum+= (pre[pos[j]] - pre[pos[j]-1]);
+        //             // cout<< "sum over here: "<<sum<<"\n";
+        //         }
+        //         else{
+        //             sum+= (pos[j]-pos[i])*2;
+        //             if(pos[i]>0)
+        //                 sum+=pre[pos[i]-1];
+        //             if(pos[j]>0)
+        //                 sum+= (pre[n-1] - pre[pos[j]-1]);
+        //             // cout<<"seriously entering here, why?"<<"\n";
+        //         }
+        //         // cout<<"sum coming over here; " << sum<<"\n";
+        //         ans=max(ans,sum);
+        //     }
+        //     cout<<ans<<"\n";
+        // }
+        // the above idea may have been wrong for various reasons, but the biggest one of them would  be thinking taking consecutive losses 
+        int wins=0,ws=0,lc=0,first_w=0;
+        vector<int>losses;
         for(i=0;i<n;i++){
-            if(s[i]=='L'){
-                pos.pb(i);
-                if(i==0)
-                    pre[i]=0;
-                else
-                    pre[i]=pre[i-1];
-            }                
-            else{
+            if(s[i]=='W'){
+                first_w=1;
+                if(lc)
+                    losses.pb(lc);
+                lc=0;
+                wins++;
                 if(i==0 || (i>0 && s[i-1]=='L'))
-                    ans+=1;
-                else 
-                    ans+=2;
-                pre[i]=ans;
+                    ws++;
+            }
+            else{
+                if(first_w==0)
+                    lc=0;
+                else
+                    lc++;
             }
         }
-        // cout<<"ans till this point, ans and pre[n-1] should be same: "<<ans<<"," << pre[n-1] <<"\n";
-        if(pos.empty() || k==0)
-            cout<<ans<<"\n";
+        // cout<<"ws here: "<<ws<<"\n";
+        if(k+wins>=n)
+            cout<<2*n-1<<"\n";
+        else if(wins==0 && k>0)
+            cout<<2*k-1<<"\n";
+        else if(wins==0 && k==0)
+            cout<<0<<"\n";
         else{
-            int sum=0;
-            for(i=0;i<pos.size()-1;i++){
-                sum=0;
-                j=i+k;
-                j=min(j, (int)pos.size()-1);
-                if(pos[i]==0 || (pos[i]>0 && s[pos[i]-1]=='L')){
-                    if(j==(int)pos.size()-1)
-                        sum+= (pos[j]-pos[i])*2+1;
-                    else
-                        sum+= (pos[j]-pos[i]-1)*2+1;
-                    if(pos[i]>0)
-                        sum+=pre[pos[i]-1];
-                    if(pos[j]>0)
-                        sum+= (pre[pos[j]] - pre[pos[j]-1]);
+            wins+=k;
+            sort(losses.begin(),losses.end());
+            // cout<<"losses:"<<"\n";
+            // for(auto x:losses)
+            //     cout<<x<<" ";
+            // cout<<"\n";
+            for(i=0;i<losses.size();i++){
+                if(losses[i]<=k){
+                    k-=losses[i];
+                    ws--;
+                    // cout<<"ws changing: "<<ws<<"\n";
                 }
-                else{
-                    sum+= (pos[j]-pos[i])*2;
-                    if(pos[i]>0)
-                        sum+=pre[pos[i]-1];
-                    if(pos[j]>0)
-                        sum+= (pre[n-1] - pre[pos[j]-1]);
-                }
-                // cout<<"sum coming over here; " << sum<<"\n";
-                ans=max(ans,sum);
+                else
+                    break;
             }
-            cout<<ans<<"\n";
+            cout<<2*wins-ws<<"\n";
         }
-        
     }
     return 0;
 }
