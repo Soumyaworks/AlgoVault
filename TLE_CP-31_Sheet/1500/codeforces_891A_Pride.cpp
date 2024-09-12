@@ -57,8 +57,13 @@ int main()
         cin>>x;
         if(x==1) c++;
     }
+    // if we already have 1s in the array, we can just use those to make other elements as 1s in every step
     if(c>0) cout<<n-c;
     else{
+        // if we don't have 1s, then we need to find the min. length of subarray whose gcd is 1
+        // min. length because then in min. steps, we can firstly make this subarray 1
+        // then in the rest of the steps, we can make all the rest of the array elements 1, i.e in n-1 operations
+        // so subarray between L and R whose gcd=1, having min. length is what we are wanting
         bool flag=false;
         k=INT_MAX;
         for(i=0;i<n-1;i++){
@@ -72,6 +77,7 @@ int main()
                 }
             }
         }
+        // if no subarray present whose gcd is 1, we can't make all the elements as 1
         if(!flag) cout<<-1;
         else cout<<k+(n-1);
     }
