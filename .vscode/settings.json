@@ -3,6 +3,9 @@
     "python.pythonPath": "C:\\Python27\\python.exe",
     "files.associations": {
         "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "bitset": "cpp",
+        "algorithm": "cpp",
+        "format": "cpp"
     }
 }
